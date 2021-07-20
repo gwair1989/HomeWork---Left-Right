@@ -22,25 +22,15 @@ class ViewController: UIViewController {
 
     
     @objc func pressedButton(_ sender:UIButton){
-        
-        
-        
         if sender.tag == 1 && count > 0{
-            
             image[count].image = UIImage(named: "Like")
             count -= 1
-            print("worked1: \(count)")
             image[count].image = UIImage(named: "Exe")
-            
-            
         }else if sender.tag == 2 && count < image.count - 1{
-            
             image[count].image = UIImage(named: "Like")
             count += 1
             image[count].image = UIImage(named: "Exe")
-            print("worked2: \(count)")
         }
-        
     }
 
     
@@ -63,7 +53,6 @@ class ViewController: UIViewController {
         rigthButton.setTitleColor(.white, for: .normal)
         rigthButton.setTitle("Right", for: .normal)
         rigthButton.titleLabel?.font = .systemFont(ofSize: 40)
-//
         rigthButton.addTarget(nil, action: #selector(pressedButton), for: .touchUpInside)
         rigthButton.tag = 2
         
@@ -80,7 +69,6 @@ class ViewController: UIViewController {
         image[3].frame = CGRect(x: 10, y: view.frame.height / 4, width: width, height: heigth)
 
         image[4].frame = CGRect(x: view.frame.width / 3 + 10, y: view.frame.height / 4, width: width, height: heigth)
-
 
         image[5].frame = CGRect(x: view.frame.width - width - 10, y: view.frame.height / 4, width: width, height: heigth)
         
