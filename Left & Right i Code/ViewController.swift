@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let image:[UIImageView] = [UIImageView(), UIImageView(),UIImageView(), UIImageView(), UIImageView(),UIImageView(), UIImageView(), UIImageView(),UIImageView(), UIImageView(), UIImageView(),UIImageView()]
+    var image:[UIImageView] = []
     
     let leftButton = UIButton(type: .system)
     let rigthButton = UIButton(type: .system)
@@ -36,6 +36,18 @@ class ViewController: UIViewController {
     
     func setUI(){
         
+        let width = view.frame.width / 3 - 20
+        let heigth = width
+        
+        for _ in 0..<12 {
+            let image = UIImageView()
+            image.frame.size = CGSize(width: width, height: heigth)
+            self.image.append(image)
+            self.view.addSubview(image)
+            image.image = UIImage(named: "Like")
+            self.image[0].image = UIImage(named: "Exe")
+        }
+        
         view.backgroundColor = .systemOrange
 
         view.addSubview(leftButton)
@@ -56,41 +68,19 @@ class ViewController: UIViewController {
         rigthButton.addTarget(nil, action: #selector(pressedButton), for: .touchUpInside)
         rigthButton.tag = 2
         
-        let width = view.frame.width / 3 - 20
-        let heigth = width
-        
+        image[0].frame.origin = CGPoint(x: 10, y: view.frame.height / 9)
+        image[1].frame.origin = CGPoint(x: view.frame.width / 3 + 10, y: view.frame.height / 9)
+        image[2].frame.origin = CGPoint(x: view.frame.width - width - 10, y: view.frame.height / 9)
+        image[3].frame.origin = CGPoint(x: 10, y: view.frame.height / 4)
+        image[4].frame.origin = CGPoint(x: view.frame.width / 3 + 10, y: view.frame.height / 4)
+        image[5].frame.origin = CGPoint(x: view.frame.width - width - 10, y: view.frame.height / 4)
+        image[6].frame.origin = CGPoint(x: 10, y: view.frame.height / 2.55)
+        image[7].frame.origin = CGPoint(x: view.frame.width / 3 + 10, y: view.frame.height / 2.55)
+        image[8].frame.origin = CGPoint(x: view.frame.width - width - 10, y: view.frame.height / 2.55)
+        image[9].frame.origin = CGPoint(x: 10, y: view.frame.height / 1.88)
+        image[10].frame.origin = CGPoint(x: view.frame.width / 3 + 10, y: view.frame.height / 1.88)
+        image[11].frame.origin = CGPoint(x: view.frame.width - width - 10, y: view.frame.height / 1.88)
 
-        image[0].frame = CGRect(x: 10, y: view.frame.height / 9, width: width, height: heigth)
-
-        image[1].frame = CGRect(x: view.frame.width / 3 + 10, y: view.frame.height / 9, width: width, height: heigth)
-
-        image[2].frame = CGRect(x: view.frame.width - width - 10, y: view.frame.height / 9, width: width, height: heigth)
-
-        image[3].frame = CGRect(x: 10, y: view.frame.height / 4, width: width, height: heigth)
-
-        image[4].frame = CGRect(x: view.frame.width / 3 + 10, y: view.frame.height / 4, width: width, height: heigth)
-
-        image[5].frame = CGRect(x: view.frame.width - width - 10, y: view.frame.height / 4, width: width, height: heigth)
-        
-        image[6].frame = CGRect(x: 10, y: view.frame.height / 2.55, width: width, height: heigth)
-
-        image[7].frame = CGRect(x: view.frame.width / 3 + 10, y: view.frame.height / 2.55, width: width, height: heigth)
-
-        image[8].frame = CGRect(x: view.frame.width - width - 10, y: view.frame.height / 2.55, width: width, height: heigth)
-
-        image[9].frame = CGRect(x: 10, y: view.frame.height / 1.88, width: width, height: heigth)
-
-        image[10].frame = CGRect(x: view.frame.width / 3 + 10, y: view.frame.height / 1.88, width: width, height: heigth)
-
-        image[11].frame = CGRect(x: view.frame.width - width - 10, y: view.frame.height / 1.88, width: width, height: heigth)
-
-        
-        for image in image{
-            image.image = UIImage(named: "Like")
-            self.image[0].image = UIImage(named: "Exe")
-            view.addSubview(image)
-        }
-        
     }
     
 }
